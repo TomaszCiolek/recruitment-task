@@ -1,0 +1,105 @@
+<div class="main-div">
+    <div class="back-button-div">
+        <button mat-raised-button color="secondary" routerLink="/planets">Back to planet list</button>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <h1>{{people.name}}</h1>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Height:</p> {{people.height}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Mass:</p> {{people.mass}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Hair color:</p> {{people.hair_color}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Skin color:</p> {{people.skin_color}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Eye color:</p> {{people.eye_color}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Birth year:</p> {{people.birth_year}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Gender:</p> {{people.gender}}
+                    </mat-list-item>
+                    <mat-list-item color="accent" [routerLink]="['/planets', idFromUrl()]">
+                        <p class="p-d">Homeworld:</p> {{planet.name}}
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="back-button-div">
+        <p>You can see details of each species, film, starship or vehicle below by clicking on it</p>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Species:</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let spec of species">
+                    <mat-list-item color="accent" [routerLink]="['/species', spec.url.split('/')[5]]">
+                        {{spec.name}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Films: </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let film of films">
+                    <mat-list-item color="accent" [routerLink]="['/films', film.url.split('/')[5]]">
+                        {{film.title}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Starships: </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let starship of starships">
+                    <mat-list-item color="accent" [routerLink]="['/starships', starship.url.split('/')[5]]">
+                        {{starship.name}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Vehicles: </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let vehicle of vehicles">
+                    <mat-list-item color="accent" [routerLink]="['/vehicles', vehicle.url.split('/')[5]]">
+                        {{vehicle.name}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

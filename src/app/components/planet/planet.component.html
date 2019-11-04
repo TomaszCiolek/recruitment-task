@@ -1,0 +1,72 @@
+<div class="main-div">
+    <div class="back-button-div">
+        <button mat-raised-button color="secondary" routerLink="/planets">Back to planet list</button>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <h1>{{planet.name}}</h1>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Rotation Period:</p> {{planet.rotation_period}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Orbital Period:</p> {{planet.orbital_period}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Diameter:</p> {{planet.diameter}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Climate:</p> {{planet.climate}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Gravity:</p> {{planet.gravity}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Terrain:</p> {{planet.terrain}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Surfacce Water:</p> {{planet.surface_water}}
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="back-button-div">
+        <p>You can see details of each resident or film below by clicking on it</p>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Residents:</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let resident of residents">
+                    <mat-list-item color="accent" [routerLink]="['/people', resident.url.split('/')[5]]">
+                        {{resident.name}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Films: </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let film of films">
+                    <mat-list-item color="accent" [routerLink]="['/films', film.url.split('/')[5]]">
+                        {{film.title}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

@@ -1,0 +1,32 @@
+<div class="main-div">
+    <div class="title-div">
+        <h1>List of all planets</h1>
+    </div>
+    <div class="input-div">
+        <mat-form-field>
+            <input type="search" matInput #myInput [(ngModel)]="searchText" placeholder="Input planet name..."
+                (input)="fPlanets(myInput.value)" />
+        </mat-form-field>
+    </div>
+    <div class="paginator-div">
+        <mat-paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+            (page)="pageEvent = getPaginatorData($event)">
+        </mat-paginator>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title></mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let planet of filteredPlanets | slice:first:second">
+                    <mat-list-item className="list" color="accent"
+                        [routerLink]="['/planets', planet.url.split('/')[5]]">
+                        <p class="p-d">Planet:</p>{{planet.name}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

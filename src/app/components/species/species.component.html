@@ -1,0 +1,78 @@
+<div class="main-div">
+    <div class="back-button-div">
+        <button mat-raised-button color="secondary" routerLink="/planets">Back to planet list</button>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <h1>{{species.name}}</h1>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Classification:</p> {{species.classification}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Designation:</p> {{species.designation}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Average height:</p> {{species.average_height}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Skin color:</p> {{species.skin_colors}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Hair color:</p> {{species.hair_colors}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Eye color:</p> {{species.eye_colors}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Average lifespan:</p> {{species.average_lifespan}}
+                    </mat-list-item>
+                    <mat-list-item color="accent" [routerLink]="['/planets', idFromUrl()]">
+                        <p class=" p-d">Homeworld:</p> {{planet.name}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Language:</p> {{species.language}}
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="back-button-div">
+        <p>You can see details of each people or film below by clicking on it</p>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>People: </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let resident of people">
+                    <mat-list-item color="accent" [routerLink]="['/people', resident.url.split('/')[5]]">
+                        {{resident.name}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Films: </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let film of films">
+                    <mat-list-item color="accent" [routerLink]="['/films', film.url.split('/')[5]]">
+                        {{film.title}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

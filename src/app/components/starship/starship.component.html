@@ -1,0 +1,84 @@
+<div class="main-div">
+    <div class="back-button-div">
+        <button mat-raised-button color="accent" routerLink="/planets">Back to planet list</button>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <h1>{{starship.name}}</h1>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Model:</p> {{starship.model}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Cost in credits:</p> {{starship.cost_in_credits}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Lenght:</p> {{starship.length}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Max atmosphering speed:</p> {{starship.max_atmosphering_speed}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Crew:</p> {{starship.crew}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Passengers:</p> {{starship.passengers}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class=" p-d">Cargo capacity:</p> {{starship.cargo_capacity}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Consumables:</p> {{starship.consumables}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Hyperdrive rating:</p> {{starship.hyperdrive_rating}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">MGLT:</p> {{starship.MGLT}}
+                    </mat-list-item>
+                    <mat-list-item class="arrow-pointer" color="accent">
+                        <p class="p-d">Starship class:</p> {{starship.starship_class}}
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="back-button-div">
+        <p>You can see details of each pilot or film below by clicking on it</p>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Pilots: </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let pilot of people">
+                    <mat-list-item color="accent" [routerLink]="['/people', pilot.url.split('/')[5]]">
+                        {{pilot.name}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div class="card-div">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>Films: </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list *ngFor="let film of films">
+                    <mat-list-item color="accent" [routerLink]="['/films', film.url.split('/')[5]]">
+                        {{film.title}}
+                    </mat-list-item>
+                    <mat-divider></mat-divider>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
